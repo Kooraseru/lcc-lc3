@@ -1,0 +1,28 @@
+This repository contains software under multiple licenses and notices.
+
+LCC-derived components
+----------------------
+
+Components derived from the LCC compiler by Christopher W. Fraser and David
+R. Hanson are distributed under the original LCC license. The complete,
+unchanged LCC license is in:
+
+    LICENSES/LCC.txt
+
+The original LCC license notice must be preserved with copies and
+modifications of LCC-derived software.
+
+Historical warranty excerpt
+---------------------------
+
+The upstream distribution also includes a separate historical NO WARRANTY
+excerpt in:
+
+    LICENSES/NO_WARRANTY.txt
+
+It is not part of the LCC license and does not make LCC-derived components
+GPL-licensed. Unless a file states otherwise, its license is determined by
+the component from which it originates.
+
+See NOTICE for copyright attribution and information about modifications
+made by this project.

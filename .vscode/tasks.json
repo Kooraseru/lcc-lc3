@@ -1,0 +1,54 @@
+// Task list or wtv for my own testing, but you can repurpose this.
+// don't treat this as being required or wtv.
+// yes, this is how I actually talk behind all the stupid licensing blah blah blah.
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build generated example",
+      "type": "shell",
+      "command": "wsl.exe",
+      "args": ["--distribution", "Ubuntu", "--", "bash", "-lc", "cd \"$(wslpath '${workspaceFolder}')\" && lua5.4 repo/build.lua .generated"],
+      "options": {
+        "shell": {
+          "executable": "C:\\Windows\\System32\\cmd.exe",
+          "args": ["/d", "/c"]
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Validate source",
+      "type": "shell",
+      "command": "wsl.exe",
+      "args": ["--distribution", "Ubuntu", "--", "bash", "-lc", "cd \"$(wslpath '${workspaceFolder}')\" && lua5.4 .github/actions/validate/main.lua"],
+      "options": {
+        "shell": {
+          "executable": "C:\\Windows\\System32\\cmd.exe",
+          "args": ["/d", "/c"]
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build generated example (Remote WSL)",
+      "type": "process",
+      "command": "lua5.4",
+      "args": ["repo/build.lua", ".generated"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Validate source (Remote WSL)",
+      "type": "process",
+      "command": "lua5.4",
+      "args": [".github/actions/validate/main.lua"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -31,3 +31,6 @@ CVS
 # Makefile
 Makefile
 
+# Local repository projection
+.generated/
+

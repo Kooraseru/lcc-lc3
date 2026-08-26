@@ -1,0 +1,99 @@
+[title.values]
+en-US = "LCC-LC3 C Compiler"
+ja-JP = "LCC-LC3 C コンパイラ"
+[summary.values]
+en-US = "LCC-LC3 is an LC-3 target for the LCC C compiler. Build it from source on a Unix shell. Windows users should use WSL."
+ja-JP = "LCC-LC3 は LCC C コンパイラ用の LC-3 ターゲットです。Unix シェルでソースからビルドします。Windows では WSL を使用してください。"
+[navigation.setup.values]
+en-US = "Set Up"
+ja-JP = "セットアップ"
+[navigation.source.values]
+en-US = "Source"
+ja-JP = "ソース"
+[navigation.install.values]
+en-US = "Install"
+ja-JP = "インストール"
+[navigation.contributors.values]
+en-US = "Contributors"
+ja-JP = "貢献者"
+[navigation.license.values]
+en-US = "License"
+ja-JP = "ライセンス"
+[setup.values]
+en-US = "1. Set Up Unix"
+ja-JP = "1. Unix をセットアップする"
+[windows.values]
+en-US = "Windows"
+ja-JP = "Windows"
+[windows_intro.values]
+en-US = "Install Ubuntu through Windows Subsystem for Linux from PowerShell:"
+ja-JP = "PowerShell から Windows Subsystem for Linux を使って Ubuntu をインストールします。"
+[windows_note.values]
+en-US = "Open Ubuntu after installation, then run the remaining commands inside the Ubuntu terminal, not PowerShell."
+ja-JP = "インストール後に Ubuntu を開き、残りのコマンドは PowerShell ではなく Ubuntu のターミナルで実行してください。"
+[macos.values]
+en-US = "macOS"
+ja-JP = "macOS"
+[macos_intro.values]
+en-US = "Install Apple's command-line tools:"
+ja-JP = "Apple のコマンドラインツールをインストールします。"
+[linux.values]
+en-US = "Linux"
+ja-JP = "Linux"
+[linux_intro.values]
+en-US = "Install a C compiler, Make, and download tools for your distribution."
+ja-JP = "使用するディストリビューション向けに C コンパイラ、Make、ダウンロードツールをインストールします。"
+[source.values]
+en-US = "2. Get The Source"
+ja-JP = "2. ソースを取得する"
+[source_intro.values]
+en-US = "Keeping source checkouts under your home directory is recommended. Clone with Git into `~/src`:"
+ja-JP = "ソースのチェックアウトはホームディレクトリ内に置くことを推奨します。Git で `~/src` にクローンします。"
+[source_custom.values]
+en-US = "To use another location, replace `~/src` with your preferred directory:"
+ja-JP = "別の場所を使用する場合は、`~/src` を任意のディレクトリに置き換えてください。"
+[curl_intro.values]
+en-US = "Or download the current `main` source archive with curl into `~/src`:"
+ja-JP = "または、curl で現在の `main` ソースアーカイブを `~/src` にダウンロードします。"
+[curl_custom.values]
+en-US = "For a custom curl location, download and extract there instead:"
+ja-JP = "curl の保存先を指定する場合は、そこでダウンロードして展開してください。"
+[curl_note.values]
+en-US = "There is no `curl | sh` installer or prebuilt release package. The curl command downloads the same source that Git clones."
+ja-JP = "`curl | sh` インストーラやビルド済みリリースパッケージはありません。curl コマンドは Git がクローンするものと同じソースをダウンロードします。"
+[install.values]
+en-US = "3. Configure, Build, And Install"
+ja-JP = "3. 設定、ビルド、インストール"
+[install_intro.values]
+en-US = "LCC-LC3 uses `configure` and `make`; it is not a CMake project."
+ja-JP = "LCC-LC3 は `configure` と `make` を使用します。CMake プロジェクトではありません。"
+[path_note.values]
+en-US = "`make install` places the compiler tools in `~/.lc3`. Add that directory to your shell path for the current session:"
+ja-JP = "`make install` はコンパイラツールを `~/.lc3` に配置します。現在のシェルセッションの PATH にこのディレクトリを追加します。"
+[assembler.values]
+en-US = "To assemble the LC-3 code produced by the compiler, install a compatible `lc3as` executable at `~/.lc3/lc3as` from the [LC-3 Tools project](https://github.com/haplesshero13/lc3tools)."
+ja-JP = "コンパイラが生成する LC-3 コードをアセンブルするには、[LC-3 Tools project](https://github.com/haplesshero13/lc3tools) から互換性のある `lc3as` 実行ファイルを `~/.lc3/lc3as` にインストールしてください。"
+[credits.values]
+en-US = "Credits"
+ja-JP = "謝辞"
+[credits_text.values]
+en-US = "LCC was created by Christopher W. Fraser and David R. Hanson. The LC-3 target was developed by Ajay Ladsaria and Sanjay J. Patel, with later work by Sean Smith, Stephen Canon, and Avery Yen. This fork is maintained by Kooraseru."
+ja-JP = "LCC は Christopher W. Fraser と David R. Hanson によって作成されました。LC-3 ターゲットは Ajay Ladsaria と Sanjay J. Patel が開発し、その後 Sean Smith、Stephen Canon、Avery Yen が作業を行いました。このフォークは Kooraseru が保守しています。"
+[contributors.values]
+en-US = "Contributors"
+ja-JP = "貢献者"
+[contributors_text.values]
+en-US = "Contributions are welcome. Read the contribution guide before opening an issue or pull request."
+ja-JP = "貢献を歓迎します。Issue やプルリクエストを作成する前に、貢献ガイドを確認してください。"
+[contributing_link.values]
+en-US = "Contribution guide"
+ja-JP = "貢献ガイド"
+[license_heading.values]
+en-US = "License"
+ja-JP = "ライセンス"
+[license.values]
+en-US = "See the licensing index for the original LCC terms and attribution."
+ja-JP = "原文の LCC 条項と帰属情報については、ライセンスの概要を参照してください。"
+[license_link.values]
+en-US = "LICENSE"
+ja-JP = "LICENSE"
