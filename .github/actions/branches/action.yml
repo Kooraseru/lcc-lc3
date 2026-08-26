@@ -1,5 +1,5 @@
 name: Validate authored branch
-description: Require the canonical main branch.
+description: Require the canonical source branch.
 inputs:
   branch:
     description: Branch name to validate.

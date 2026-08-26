@@ -1,17 +1,17 @@
-name: Validate source
+name: Validate and publish source
 
 on:
   workflow_dispatch:
   pull_request:
-    branches: [main]
+    branches: [source]
   push:
-    branches: [main]
+    branches: [source]
 
 permissions:
   contents: read
 
 jobs:
-  repository:
+  validate:
     name: Source contracts
     runs-on: ubuntu-latest
     steps:
@@ -33,3 +33,42 @@ jobs:
         with:
           destination: ${{ runner.temp }}/lcc-lc3-generated
           check-eol: "true"
+
+  publish:
+    name: Publish generated repository
+    needs: validate
+    if: github.event_name == 'push' && github.ref_name == 'source'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up repository tooling
+        run: sudo apt-get update && sudo apt-get install --yes lua5.4
+
+      - name: Build public repository
+        uses: ./.github/actions/build-repo
+        with:
+          destination: ${{ runner.temp }}/lcc-lc3-public
+
+      - name: Replace main with generated repository
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          git fetch origin main
+          git checkout --force -B main origin/main
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a "$RUNNER_TEMP/lcc-lc3-public/." .
+          git add --all
+          if git diff --cached --quiet; then
+            echo "Generated repository is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish source @ ${SOURCE_SHA}"
+          git push origin HEAD:main
