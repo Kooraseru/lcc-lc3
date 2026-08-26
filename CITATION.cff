@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use LCC-LC3, please cite the software and its original authors."
+title: "LCC-LC3 C Compiler"
+type: software
+authors:
+  - family-names: Fraser
+    given-names: Christopher W.
+  - family-names: Hanson
+    given-names: David R.
+  - name: Kooraseru
+repository-code: "https://github.com/Kooraseru/lcc-lc3"
+license: "LicenseRef-LCC"
