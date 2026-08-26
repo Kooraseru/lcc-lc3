@@ -1,0 +1,34 @@
+LCC-LC3 Notices
+===============
+
+This project contains software derived from LCC.
+
+Original LCC authors:
+    Christopher W. Fraser
+    David R. Hanson
+
+Original copyright:
+    Copyright (c) 1991-2002 AT&T,
+    Christopher W. Fraser, and David R. Hanson.
+
+LCC license:
+    LICENSES/LCC.txt
+
+The LC-3 target and other components may have additional authors and license
+terms. See the corresponding source files and license notices.
+
+Modifications
+-------------
+
+This distribution includes modifications made after the original LCC
+distribution, including changes for modern build environments and host
+architectures.
+
+Copyright notices for those modifications are retained in their respective
+files and commit history.
+
+This project is not affiliated with or endorsed by the original LCC authors,
+AT&T, Addison-Wesley, or Microsoft.
+
+Bug reports concerning this modified distribution should be reported to the
+maintainers of this project rather than to the original LCC authors.
