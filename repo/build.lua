@@ -24,6 +24,7 @@ if not ok then io.stderr:write(command_error .. "\n"); os.exit(1) end
 ok, command_error = command.run(root,
   "mkdir -p " .. command.quote(destination .. "/docs")
     .. " && cp -R code " .. command.quote(destination .. "/code")
+    .. " && cp -R .github " .. command.quote(destination .. "/.github")
     .. " && cp -R LICENSES " .. command.quote(destination .. "/LICENSES")
     .. " && cp -R releases/records " .. command.quote(destination .. "/releases")
     .. " && cp LICENSE NOTICE CITATION.cff repo/templates/CONTRIBUTING.md"
@@ -43,15 +44,13 @@ for index, locale in ipairs(locales) do
   
   for _, target in ipairs(locales) do
     if target.key ~= locale.key then
-        local subpath = "/"
-
-        -- Keep English as top-level language. because we're better than yall chums.
-        -- USA, USA, USA 🦅🦅🦅🦅
-        if target.key ~= "en-US" then
-            subpath = "/" .. target.key .. "/"
-        end
-
-        links.locales[target.key] = "docs" .. subpath .. "README.md"
+      if target.key == "en-US" then
+        links.locales[target.key] = "../README.md"
+      elseif locale.key == "en-US" then
+        links.locales[target.key] = target.key .. "/README.md"
+      else
+        links.locales[target.key] = "../" .. target.key .. "/README.md"
+      end
     end
   end
 
@@ -65,20 +64,6 @@ for index, locale in ipairs(locales) do
   end
   local written, write_error = filesystem.write(document, rendered)
   if not written then io.stderr:write(write_error .. "\n"); os.exit(1) end
-  if index == 1 then
-    local root_links = {
-      license = "LICENSE",
-      contributing = "CONTRIBUTING.md",
-      locales = {},
-    }
-    for _, target in ipairs(locales) do
-      root_links.locales[target.key] = target.key == "en-US" and "docs/README.md" or ("docs/" .. target.key .. "/README.md")
-    end
-    local root_rendered, root_render_error = i18n.text(root, template, locale.key, root_links)
-    if not root_rendered then io.stderr:write(root_render_error .. "\n"); os.exit(1) end
-    written, write_error = filesystem.write(destination .. "/README.md", root_rendered)
-    if not written then io.stderr:write(write_error .. "\n"); os.exit(1) end
-  end
 end
 
 io.stdout:write("Built generated repository at ", destination, "\n")
