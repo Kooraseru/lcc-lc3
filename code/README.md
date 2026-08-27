@@ -28,7 +28,7 @@ export PATH="$HOME/.local/bin:$PATH"
 Verify the installation:
 
 ```sh
-lcc -help
+command -v lcc lc3as
 ```
 
 `make install` installs the bundled `lc3as` executable alongside the compiler.

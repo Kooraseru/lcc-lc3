@@ -84,7 +84,7 @@ export PATH="$HOME/.local/bin:$PATH"
 {{ l10n:repository.assembler }}
 
 ```sh
-lcc -help
+command -v lcc lc3as
 ```
 
 {{ l10n:repository.release_note }}

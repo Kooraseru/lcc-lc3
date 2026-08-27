@@ -71,8 +71,8 @@ ja-JP = "前の手順で作成した `src/` ディレクトリで次のコマン
 en-US = "Add the installation directory to your shell path if your system does not already include `~/.local/bin`, then verify the installation:"
 ja-JP = "システムの PATH に `~/.local/bin` が含まれていない場合は、インストール先をシェルの PATH に追加してから、インストールを確認します。"
 [assembler.values]
-en-US = "`make install` installs the bundled assembler at `~/.local/bin/lc3as`. The following command should print the compiler options without an `lc3as` error:"
-ja-JP = "`make install` は同梱のアセンブラを `~/.local/bin/lc3as` にインストールします。次のコマンドは `lc3as` エラーなしでコンパイラオプションを表示するはずです。"
+en-US = "`make install` installs the bundled assembler at `~/.local/bin/lc3as`. The following command should print paths for both installed tools:"
+ja-JP = "`make install` は同梱のアセンブラを `~/.local/bin/lc3as` にインストールします。次のコマンドは、インストールされた両方のツールのパスを表示するはずです。"
 [release_note.values]
 en-US = "Distribution packages (for example, APT and pacman) are not available yet."
 ja-JP = "APT や pacman などの配布パッケージはまだ提供していません。"
