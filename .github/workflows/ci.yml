@@ -3,7 +3,7 @@ name: Validate and publish source
 on:
   workflow_dispatch:
   pull_request:
-    branches: [source]
+    branches: [source, main]
   push:
     branches: [source]
 
