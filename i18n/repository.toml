@@ -44,14 +44,14 @@ ja-JP = "Linux"
 en-US = "Install a C compiler, Make, and download tools for your distribution."
 ja-JP = "使用するディストリビューション向けに C コンパイラ、Make、ダウンロードツールをインストールします。"
 [source.values]
-en-US = "2. Get The Source"
-ja-JP = "2. ソースを取得する"
+en-US = "Get LCC-LC3"
+ja-JP = "LCC-LC3 を入手する"
 [source_intro.values]
-en-US = "Keeping source checkouts under your home directory is recommended. Clone with Git into `~/src`:"
-ja-JP = "ソースのチェックアウトはホームディレクトリ内に置くことを推奨します。Git で `~/src` にクローンします。"
+en-US = "When a release archive is available, download and extract it from the [Releases page](https://github.com/Kooraseru/lcc-lc3/releases), then follow `src/README.md`. To develop, contribute, or obtain the current source, clone the canonical `source` branch:"
+ja-JP = "リリースアーカイブが利用できる場合は、[Releases ページ](https://github.com/Kooraseru/lcc-lc3/releases)からダウンロードして展開し、`src/README.md` に従ってください。開発、貢献、または最新ソースの取得には、正規の `source` ブランチをクローンします。"
 [source_custom.values]
-en-US = "To use another location, replace `~/src` with your preferred directory:"
-ja-JP = "別の場所を使用する場合は、`~/src` を任意のディレクトリに置き換えてください。"
+en-US = "Do not fork, branch from, or open pull requests against `main`; it is generated from `source`."
+ja-JP = "`main` は `source` から生成されます。`main` をフォーク、ブランチ作成元、またはプルリクエストの対象にしないでください。"
 [curl_intro.values]
 en-US = "Or download the current `main` source archive with curl into `~/src`:"
 ja-JP = "または、curl で現在の `main` ソースアーカイブを `~/src` にダウンロードします。"
@@ -62,17 +62,21 @@ ja-JP = "curl の保存先を指定する場合は、そこでダウンロード
 en-US = "There is no `curl | sh` installer or prebuilt release package. The curl command downloads the same source that Git clones."
 ja-JP = "`curl | sh` インストーラやビルド済みリリースパッケージはありません。curl コマンドは Git がクローンするものと同じソースをダウンロードします。"
 [install.values]
-en-US = "3. Configure, Build, And Install"
-ja-JP = "3. 設定、ビルド、インストール"
+en-US = "Build and install"
+ja-JP = "ビルドしてインストールする"
 [install_intro.values]
-en-US = "LCC-LC3 uses `configure` and `make`; it is not a CMake project."
-ja-JP = "LCC-LC3 は `configure` と `make` を使用します。CMake プロジェクトではありません。"
+en-US = "Run these commands from the release archive's `src/` directory or the development checkout's `code/` directory. `~/.local/bin` is the recommended per-user location for executable tools."
+ja-JP = "リリースアーカイブの `src/` ディレクトリ、または開発チェックアウトの `code/` ディレクトリで次のコマンドを実行します。実行可能ツールのユーザーごとの推奨配置先は `~/.local/bin` です。"
 [path_note.values]
-en-US = "`make install` places the compiler tools in `~/.lc3`. Add that directory to your shell path for the current session:"
-ja-JP = "`make install` はコンパイラツールを `~/.lc3` に配置します。現在のシェルセッションの PATH にこのディレクトリを追加します。"
+en-US = "Add the installation directory to your shell path if your system does not already include `~/.local/bin`:"
+ja-JP = "システムの PATH に `~/.local/bin` が含まれていない場合は、インストール先をシェルの PATH に追加します。"
 [assembler.values]
-en-US = "To assemble the LC-3 code produced by the compiler, install a compatible `lc3as` executable at `~/.lc3/lc3as` from the [LC-3 Tools project](https://github.com/haplesshero13/lc3tools)."
-ja-JP = "コンパイラが生成する LC-3 コードをアセンブルするには、[LC-3 Tools project](https://github.com/haplesshero13/lc3tools) から互換性のある `lc3as` 実行ファイルを `~/.lc3/lc3as` にインストールしてください。"
+en-US = "To assemble compiler output, install a compatible `lc3as` executable at `~/.local/bin/lc3as` from the [LC-3 Tools project](https://github.com/haplesshero13/lc3tools)."
+ja-JP = "コンパイラ出力をアセンブルするには、[LC-3 Tools project](https://github.com/haplesshero13/lc3tools) から互換性のある `lc3as` 実行ファイルを `~/.local/bin/lc3as` にインストールしてください。"
+[release_note.values]
+en-US = "Release archives are intended to contain only this buildable tree as `src/` and its setup README. Distribution packages (for example, APT and pacman) are not available yet."
+ja-JP = "リリースアーカイブには、ビルド可能なツリーを `src/` とセットアップ README として含めます。APT や pacman などの配布パッケージはまだ提供していません。"
+
 [credits.values]
 en-US = "Credits"
 ja-JP = "謝辞"

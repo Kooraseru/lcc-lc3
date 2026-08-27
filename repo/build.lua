@@ -23,7 +23,7 @@ if not ok then io.stderr:write(command_error .. "\n"); os.exit(1) end
 
 ok, command_error = command.run(root,
   "mkdir -p " .. command.quote(destination .. "/docs")
-    .. " && cp -R code " .. command.quote(destination .. "/code")
+    .. " && cp -R code " .. command.quote(destination .. "/src")
     .. " && cp -R .github " .. command.quote(destination .. "/.github")
     .. " && cp -R LICENSES " .. command.quote(destination .. "/LICENSES")
     .. " && cp -R releases/records " .. command.quote(destination .. "/releases")
@@ -37,17 +37,17 @@ if not ok then io.stderr:write(command_error .. "\n"); os.exit(1) end
 
 for index, locale in ipairs(locales) do
   local links = {
-    license = index == 1 and "../LICENSE" or "../../LICENSE",
-    contributing = index == 1 and "../CONTRIBUTING.md" or "../../CONTRIBUTING.md",
+    license = index == 1 and "LICENSE" or "../../LICENSE",
+    contributing = index == 1 and "CONTRIBUTING.md" or "../../CONTRIBUTING.md",
     locales = {},
   }
   
   for _, target in ipairs(locales) do
     if target.key ~= locale.key then
       if target.key == "en-US" then
-        links.locales[target.key] = "../README.md"
+        links.locales[target.key] = "../../README.md"
       elseif locale.key == "en-US" then
-        links.locales[target.key] = target.key .. "/README.md"
+        links.locales[target.key] = "docs/" .. target.key .. "/README.md"
       else
         links.locales[target.key] = "../" .. target.key .. "/README.md"
       end
@@ -56,7 +56,7 @@ for index, locale in ipairs(locales) do
 
   local rendered, render_error = i18n.text(root, template, locale.key, links)
   if not rendered then io.stderr:write(render_error .. "\n"); os.exit(1) end
-  local document = index == 1 and (destination .. "/docs/README.md")
+  local document = index == 1 and (destination .. "/README.md")
     or (destination .. "/docs/" .. locale.key .. "/README.md")
   if index > 1 then
     ok, command_error = command.run(root, "mkdir -p " .. command.quote(destination .. "/docs/" .. locale.key), true)
