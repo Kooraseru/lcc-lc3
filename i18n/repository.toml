@@ -8,8 +8,8 @@ ja-JP = "LCC-LC3 は LCC C コンパイラ用の LC-3 ターゲットです。Un
 en-US = "Set Up"
 ja-JP = "セットアップ"
 [navigation.source.values]
-en-US = "Develop"
-ja-JP = "開発"
+en-US = "Download"
+ja-JP = "ダウンロード"
 [navigation.install.values]
 en-US = "Install"
 ja-JP = "インストール"
@@ -20,8 +20,8 @@ ja-JP = "貢献者"
 en-US = "License"
 ja-JP = "ライセンス"
 [setup.values]
-en-US = "1. Set Up Unix"
-ja-JP = "1. Unix をセットアップする"
+en-US = "1. Install build tools"
+ja-JP = "1. ビルドツールをインストールする"
 [windows.values]
 en-US = "Windows"
 ja-JP = "Windows"
@@ -35,20 +35,20 @@ ja-JP = "インストール後に Ubuntu を開き、残りのコマンドは Po
 en-US = "macOS"
 ja-JP = "macOS"
 [macos_intro.values]
-en-US = "Install Apple's command-line tools:"
-ja-JP = "Apple のコマンドラインツールをインストールします。"
+en-US = "Install Apple's command-line tools, then install Flex with Homebrew:"
+ja-JP = "Apple のコマンドラインツールをインストールしてから、Homebrew で Flex をインストールします。"
 [linux.values]
 en-US = "Linux"
 ja-JP = "Linux"
 [linux_intro.values]
-en-US = "Install a C compiler, Make, and download tools for your distribution."
-ja-JP = "使用するディストリビューション向けに C コンパイラ、Make、ダウンロードツールをインストールします。"
+en-US = "Install GCC, Make, and Flex for your distribution:"
+ja-JP = "使用するディストリビューション向けに GCC、Make、Flex をインストールします。"
 [source.values]
-en-US = "Develop or contribute"
-ja-JP = "開発または貢献する"
+en-US = "2. Download a release"
+ja-JP = "2. リリースをダウンロードする"
 [source_intro.values]
-en-US = "Clone the canonical `source` branch for development, bug fixes, and pull requests:"
-ja-JP = "開発、バグ修正、プルリクエストには、正規の `source` ブランチをクローンします。"
+en-US = "Run the following commands in the directory where you want to keep the source. They download and extract the newest release:"
+ja-JP = "ソースを保存するディレクトリで次のコマンドを実行します。最新のリリースをダウンロードして展開します。"
 [source_custom.values]
 en-US = "Do not fork, branch from, or open pull requests against `main`; it is generated from `source`."
 ja-JP = "`main` は `source` から生成されます。`main` をフォーク、ブランチ作成元、またはプルリクエストの対象にしないでください。"
@@ -62,20 +62,20 @@ ja-JP = "curl の保存先を指定する場合は、そこでダウンロード
 en-US = "There is no `curl | sh` installer or prebuilt release package. The curl command downloads the same source that Git clones."
 ja-JP = "`curl | sh` インストーラやビルド済みリリースパッケージはありません。curl コマンドは Git がクローンするものと同じソースをダウンロードします。"
 [install.values]
-en-US = "Install"
-ja-JP = "インストール"
+en-US = "3. Build and install"
+ja-JP = "3. ビルドしてインストールする"
 [install_intro.values]
-en-US = "When a release archive is available, download and extract it from the [Releases page](https://github.com/Kooraseru/lcc-lc3/releases), then run these commands from its `src/` directory. GCC, Make, and Flex are required; Windows users should run them in WSL. `~/.local/bin` is the recommended per-user installation directory."
-ja-JP = "リリースアーカイブが利用できる場合は、[Releases ページ](https://github.com/Kooraseru/lcc-lc3/releases)からダウンロードして展開し、その `src/` ディレクトリで次のコマンドを実行します。GCC、Make、Flex が必要です。Windows では WSL 内で実行してください。ユーザーごとの推奨インストール先は `~/.local/bin` です。"
+en-US = "Run these commands from the `src/` directory created in the previous step. `~/.local/bin` is the recommended per-user installation directory."
+ja-JP = "前の手順で作成した `src/` ディレクトリで次のコマンドを実行します。ユーザーごとの推奨インストール先は `~/.local/bin` です。"
 [path_note.values]
-en-US = "Add the installation directory to your shell path if your system does not already include `~/.local/bin`:"
-ja-JP = "システムの PATH に `~/.local/bin` が含まれていない場合は、インストール先をシェルの PATH に追加します。"
+en-US = "Add the installation directory to your shell path if your system does not already include `~/.local/bin`, then verify the installation:"
+ja-JP = "システムの PATH に `~/.local/bin` が含まれていない場合は、インストール先をシェルの PATH に追加してから、インストールを確認します。"
 [assembler.values]
-en-US = "`make install` also installs the bundled `lc3as` assembler at `~/.local/bin/lc3as`."
-ja-JP = "`make install` は、同梱の `lc3as` アセンブラも `~/.local/bin/lc3as` にインストールします。"
+en-US = "`make install` installs the bundled assembler at `~/.local/bin/lc3as`. The following command should print the compiler options without an `lc3as` error:"
+ja-JP = "`make install` は同梱のアセンブラを `~/.local/bin/lc3as` にインストールします。次のコマンドは `lc3as` エラーなしでコンパイラオプションを表示するはずです。"
 [release_note.values]
-en-US = "Release archives contain the buildable source tree as `src/`, including the setup README and bundled assembler. Distribution packages (for example, APT and pacman) are not available yet."
-ja-JP = "リリースアーカイブには、セットアップ README と同梱アセンブラを含むビルド可能なソースツリーが `src/` として含まれます。APT や pacman などの配布パッケージはまだ提供していません。"
+en-US = "Distribution packages (for example, APT and pacman) are not available yet."
+ja-JP = "APT や pacman などの配布パッケージはまだ提供していません。"
 
 [credits.values]
 en-US = "Credits"
