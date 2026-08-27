@@ -55,6 +55,14 @@ jobs:
         with:
           destination: ${{ runner.temp }}/lcc-lc3-public
 
+      - name: Select release record
+        id: release
+        run: |
+          version="$(find releases/records -maxdepth 1 -type f -name '*.md' -printf '%f\n' | sort -r | head -n 1)"
+          version="${version%.md}"
+          test -n "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
       - name: Replace main with generated repository
         env:
           SOURCE_SHA: ${{ github.sha }}
@@ -72,3 +80,24 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Publish source @ ${SOURCE_SHA}"
           git push origin HEAD:main
+
+      - name: Publish source release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_SHA: ${{ github.sha }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          if gh release view "$VERSION" >/dev/null 2>&1; then
+            echo "Release $VERSION already exists."
+            exit 0
+          fi
+
+          archive="$RUNNER_TEMP/lcc-lc3-$VERSION-src.tar.gz"
+          archive_tar="$RUNNER_TEMP/lcc-lc3-$VERSION-src.tar"
+          git archive --format=tar --prefix="lcc-lc3-$VERSION/src/" "$SOURCE_SHA:code" > "$archive_tar"
+          gzip -n -c "$archive_tar" > "$archive"
+
+          gh release create "$VERSION" "$archive" \
+            --target "$SOURCE_SHA" \
+            --title "LCC-LC3 $VERSION" \
+            --notes-file "$RUNNER_TEMP/lcc-lc3-public/releases/$VERSION.md"
