@@ -1,0 +1,31 @@
+# Build rules for the bundled LC-3 assembler.
+#
+# The assembler sources in this directory are derived from LC-3 Tools.
+# See COPYING, NO_WARRANTY, README.md, and UPSTREAM.md.
+
+GCC = __GCC__
+FLEX = __FLEX__
+EXE = __EXE__
+RM = __RM__
+
+CFLAGS ?= -g -Wall
+LDFLAGS ?= -g
+
+.PHONY: dist distclean distclear
+
+dist: lc3as${EXE}
+
+lc3as${EXE}: lex.lc3.o symbol.o
+	${GCC} ${LDFLAGS} -o $@ $^
+
+lex.lc3.c: lc3.f
+	${FLEX} -i -Plc3 -o $@ $<
+
+%.o: %.c symbol.h
+	${GCC} ${CFLAGS} -c -o $@ $<
+
+distclean:
+	${RM} -f lex.lc3.c *.o *~
+
+distclear: distclean
+	${RM} -f lc3as${EXE}
