@@ -81,10 +81,10 @@ Add the installation directory to your shell path if your system does not alread
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-`make install` installs the bundled assembler at `~/.local/bin/lc3as`. The following command should print the compiler options without an `lc3as` error:
+`make install` installs the bundled assembler at `~/.local/bin/lc3as`. The following command should print paths for both installed tools:
 
 ```sh
-lcc -help
+command -v lcc lc3as
 ```
 
 Distribution packages (for example, APT and pacman) are not available yet.

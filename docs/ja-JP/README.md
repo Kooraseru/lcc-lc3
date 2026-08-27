@@ -81,10 +81,10 @@ make install
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-`make install` は同梱のアセンブラを `~/.local/bin/lc3as` にインストールします。次のコマンドは `lc3as` エラーなしでコンパイラオプションを表示するはずです。
+`make install` は同梱のアセンブラを `~/.local/bin/lc3as` にインストールします。次のコマンドは、インストールされた両方のツールのパスを表示するはずです。
 
 ```sh
-lcc -help
+command -v lcc lc3as
 ```
 
 APT や pacman などの配布パッケージはまだ提供していません。
