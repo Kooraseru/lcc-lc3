@@ -58,8 +58,10 @@ jobs:
       - name: Select release record
         id: release
         run: |
-          version="$(find releases/records -maxdepth 1 -type f -name '*.md' -printf '%f\n' | sort -r | head -n 1)"
-          version="${version%.md}"
+          version="$(find releases/records -maxdepth 1 -type f -name '*.md' -printf '%f\n' \
+            | sed 's/\.md$//' \
+            | sort -t. -k1,1nr -k2,2nr -k3,3nr \
+            | head -n 1)"
           test -n "$version"
           echo "version=$version" >> "$GITHUB_OUTPUT"
 
@@ -87,17 +89,17 @@ jobs:
           SOURCE_SHA: ${{ github.sha }}
           VERSION: ${{ steps.release.outputs.version }}
         run: |
-          if gh release view "$VERSION" >/dev/null 2>&1; then
-            echo "Release $VERSION already exists."
-            exit 0
+          if git ls-remote --exit-code --tags origin "refs/tags/$VERSION" >/dev/null 2>&1; then
+            gh release delete "$VERSION" --yes || true
+            git push origin --delete "refs/tags/$VERSION"
           fi
 
-          archive="$RUNNER_TEMP/lcc-lc3-$VERSION-src.tar.gz"
-          archive_tar="$RUNNER_TEMP/lcc-lc3-$VERSION-src.tar"
+          archive="$RUNNER_TEMP/lcc-lc3-$VERSION.tar.gz"
+          archive_tar="$RUNNER_TEMP/lcc-lc3-$VERSION.tar"
           git archive --format=tar --prefix="lcc-lc3-$VERSION/src/" "$SOURCE_SHA:code" > "$archive_tar"
           gzip -n -c "$archive_tar" > "$archive"
 
           gh release create "$VERSION" "$archive" \
             --target "$SOURCE_SHA" \
-            --title "LCC-LC3 $VERSION" \
+            --title "$VERSION" \
             --notes-file "$RUNNER_TEMP/lcc-lc3-public/releases/$VERSION.md"
