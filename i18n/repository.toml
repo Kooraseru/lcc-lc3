@@ -65,14 +65,14 @@ ja-JP = "`curl | sh` インストーラやビルド済みリリースパッケ�
 en-US = "Build and install"
 ja-JP = "ビルドしてインストールする"
 [install_intro.values]
-en-US = "Run these commands from the release archive's `src/` directory or the development checkout's `code/` directory. `~/.local/bin` is the recommended per-user location for executable tools."
-ja-JP = "リリースアーカイブの `src/` ディレクトリ、または開発チェックアウトの `code/` ディレクトリで次のコマンドを実行します。実行可能ツールのユーザーごとの推奨配置先は `~/.local/bin` です。"
+en-US = "Run these commands from the release archive's `src/` directory or the development checkout's `code/` directory. GCC, Make, and Flex are required. `~/.local/bin` is the recommended per-user location for executable tools."
+ja-JP = "リリースアーカイブの `src/` ディレクトリ、または開発チェックアウトの `code/` ディレクトリで次のコマンドを実行します。GCC、Make、Flex が必要です。実行可能ツールのユーザーごとの推奨配置先は `~/.local/bin` です。"
 [path_note.values]
 en-US = "Add the installation directory to your shell path if your system does not already include `~/.local/bin`:"
 ja-JP = "システムの PATH に `~/.local/bin` が含まれていない場合は、インストール先をシェルの PATH に追加します。"
 [assembler.values]
-en-US = "To assemble compiler output, install a compatible `lc3as` executable at `~/.local/bin/lc3as` from the [LC-3 Tools project](https://github.com/haplesshero13/lc3tools)."
-ja-JP = "コンパイラ出力をアセンブルするには、[LC-3 Tools project](https://github.com/haplesshero13/lc3tools) から互換性のある `lc3as` 実行ファイルを `~/.local/bin/lc3as` にインストールしてください。"
+en-US = "`make install` also installs the bundled `lc3as` assembler at `~/.local/bin/lc3as`."
+ja-JP = "`make install` は、同梱の `lc3as` アセンブラも `~/.local/bin/lc3as` にインストールします。"
 [release_note.values]
 en-US = "Release archives are intended to contain only this buildable tree as `src/` and its setup README. Distribution packages (for example, APT and pacman) are not available yet."
 ja-JP = "リリースアーカイブには、ビルド可能なツリーを `src/` とセットアップ README として含めます。APT や pacman などの配布パッケージはまだ提供していません。"

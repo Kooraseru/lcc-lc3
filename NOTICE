@@ -17,6 +17,14 @@ LCC license:
 The LC-3 target and other components may have additional authors and license
 terms. See the corresponding source files and license notices.
 
+Bundled LC-3 assembler
+-----------------------
+
+`code/lc3as` contains the `lc3as` assembler derived from LC-3 Tools by
+Steven S. Lumetta. It is distributed under the GNU General Public License,
+version 2; its complete license,
+upstream README, and warranty notice are preserved in `code/lc3as/`.
+
 Modifications
 -------------
 
