@@ -19,7 +19,7 @@ esac
 
 # Some binaries that we'll need, and the places that we might find them.
 
-binlist="uname gcc rm cp mkdir chmod sed make ranlib ar"
+binlist="uname flex gcc rm cp mkdir chmod sed make ranlib ar"
 pathlist="/bin /usr/bin /usr/local/bin /usr/ccs/bin"
 libpathlist="/lib /usr/lib /usr/local/lib"
 incpathlist="/include /usr/include /usr/local/include"
@@ -117,3 +117,7 @@ sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
     -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
     -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
     -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile
+cd ../lc3as
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __FLEX__ $flex g" -e "s __EXE__ $EXE g" \
+    -e "s __RM__ $rm g" Makefile.def > Makefile
