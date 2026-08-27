@@ -1,22 +1,10 @@
 <div align="center">
   <h1>{{ l10n:repository.title }}</h1>
-  <table><tr><td><a href="#install">{{ l10n:repository.navigation.install }}</a></td><td><a href="#source">{{ l10n:repository.navigation.source }}</a></td><td><a href="#contributors">{{ l10n:repository.navigation.contributors }}</a></td><td><a href="#license">{{ l10n:repository.navigation.license }}</a></td></tr></table>
+  <table><tr><td><a href="#install">{{ l10n:repository.navigation.install }}</a></td><td><a href="#develop">{{ l10n:repository.navigation.source }}</a></td><td><a href="#contributors">{{ l10n:repository.navigation.contributors }}</a></td><td><a href="#license">{{ l10n:repository.navigation.license }}</a></td></tr></table>
   {{ locales:repository }}
 </div>
 
 {{ l10n:repository.summary }}
-
-<a id="source"></a>
-## {{ l10n:repository.source }}
-
-{{ l10n:repository.source_intro }}
-
-```sh
-git clone --branch source --single-branch https://github.com/Kooraseru/lcc-lc3.git
-cd lcc-lc3/code
-```
-
-{{ l10n:repository.source_custom }}
 
 <a id="install"></a>
 ## {{ l10n:repository.install }}
@@ -38,6 +26,18 @@ export PATH="$HOME/.local/bin:$PATH"
 {{ l10n:repository.assembler }}
 
 {{ l10n:repository.release_note }}
+
+<a id="develop"></a>
+## {{ l10n:repository.source }}
+
+{{ l10n:repository.source_intro }}
+
+```sh
+git clone --branch source --single-branch https://github.com/Kooraseru/lcc-lc3.git
+cd lcc-lc3/code
+```
+
+{{ l10n:repository.source_custom }}
 
 <a id="contributors"></a>
 ## {{ l10n:repository.contributors }}
