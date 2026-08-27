@@ -94,8 +94,8 @@ jobs:
             git push origin --delete "refs/tags/$VERSION"
           fi
 
-          archive="$RUNNER_TEMP/lcc-lc3-$VERSION.tar.gz"
-          archive_tar="$RUNNER_TEMP/lcc-lc3-$VERSION.tar"
+          archive="$RUNNER_TEMP/lcc-lc3.tar.gz"
+          archive_tar="$RUNNER_TEMP/lcc-lc3.tar"
           git archive --format=tar --prefix="lcc-lc3-$VERSION/src/" "$SOURCE_SHA:code" > "$archive_tar"
           gzip -n -c "$archive_tar" > "$archive"
 
