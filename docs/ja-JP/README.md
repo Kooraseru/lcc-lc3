@@ -21,7 +21,7 @@ cd lcc-lc3/code
 <a id="install"></a>
 ## ビルドしてインストールする
 
-リリースアーカイブの `src/` ディレクトリ、または開発チェックアウトの `code/` ディレクトリで次のコマンドを実行します。実行可能ツールのユーザーごとの推奨配置先は `~/.local/bin` です。
+リリースアーカイブの `src/` ディレクトリ、または開発チェックアウトの `code/` ディレクトリで次のコマンドを実行します。GCC、Make、Flex が必要です。実行可能ツールのユーザーごとの推奨配置先は `~/.local/bin` です。
 
 ```sh
 sh ./configure --installdir "$HOME/.local/bin"
@@ -35,7 +35,7 @@ make install
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-コンパイラ出力をアセンブルするには、[LC-3 Tools project](https://github.com/haplesshero13/lc3tools) から互換性のある `lc3as` 実行ファイルを `~/.local/bin/lc3as` にインストールしてください。
+`make install` は、同梱の `lc3as` アセンブラも `~/.local/bin/lc3as` にインストールします。
 
 リリースアーカイブには、ビルド可能なツリーを `src/` とセットアップ README として含めます。APT や pacman などの配布パッケージはまだ提供していません。
 

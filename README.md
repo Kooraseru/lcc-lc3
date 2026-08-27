@@ -21,7 +21,7 @@ Do not fork, branch from, or open pull requests against `main`; it is generated 
 <a id="install"></a>
 ## Build and install
 
-Run these commands from the release archive's `src/` directory or the development checkout's `code/` directory. `~/.local/bin` is the recommended per-user location for executable tools.
+Run these commands from the release archive's `src/` directory or the development checkout's `code/` directory. GCC, Make, and Flex are required. `~/.local/bin` is the recommended per-user location for executable tools.
 
 ```sh
 sh ./configure --installdir "$HOME/.local/bin"
@@ -35,7 +35,7 @@ Add the installation directory to your shell path if your system does not alread
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-To assemble compiler output, install a compatible `lc3as` executable at `~/.local/bin/lc3as` from the [LC-3 Tools project](https://github.com/haplesshero13/lc3tools).
+`make install` also installs the bundled `lc3as` assembler at `~/.local/bin/lc3as`.
 
 Release archives are intended to contain only this buildable tree as `src/` and its setup README. Distribution packages (for example, APT and pacman) are not available yet.
 
